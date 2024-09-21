@@ -99,3 +99,4 @@ model AgentTask {
   @@index([agentId])
   @@index([type])
 }
+
