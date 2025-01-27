@@ -19,6 +19,8 @@ export const DEFAULT_SETTINGS: ModelSettings = {
   customMaxTokens: DEFAULT_MAX_TOKENS,
   customEndPoint: "",
   customGuestKey: "",
+  codyChat: "",
+  deepSeekCoderV3: "",
 };
 
 const loadSettings = (): ModelSettings => {

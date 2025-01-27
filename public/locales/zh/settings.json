@@ -16,5 +16,7 @@
   "guest-key": "访问码：",
   "endPoint": "代理：",
   "mode": "模式：",
-  "mode-tips": "自动模式 (默认): 代理程序自动执行每个任务。\n\n暂停模式: 代理程序在每组任务后暂停"
+  "mode-tips": "自动模式 (默认): 代理程序自动执行每个任务。\n\n暂停模式: 代理程序在每组任务后暂停",
+  "cody-chat": "Cody Chat",
+  "deep-seek-coder-v3": "Deep Seek Coder V3"
 }

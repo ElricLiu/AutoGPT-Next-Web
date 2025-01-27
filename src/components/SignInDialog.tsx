@@ -28,6 +28,9 @@ export const SignInDialog = ({ show, close }: SignInDialogProps) => {
           </a>
           to deploy an Agent! 🤖
         </p>
+        <p>
+          You can also use Cody chat and deep seek coder v3 after signing in.
+        </p>
       </Trans>
     </Dialog>
   );
