@@ -35,5 +35,7 @@
   "placeholder-agent-goal": "Make the world a better place.",
   "paused": "Paused",
   "add-task": "Add Task: ",
-  "custom-task": "Custom Task"
+  "custom-task": "Custom Task",
+  "cody-chat": "Cody Chat",
+  "deep-seek-coder-v3": "Deep Seek Coder V3"
 }

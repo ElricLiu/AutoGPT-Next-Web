@@ -118,6 +118,38 @@ async function createTasksAgent(
   return extractTasks(completion.text as string, completedTasks || []);
 }
 
+async function codyChatAgent(
+  modelSettings: ModelSettings,
+  goal: string,
+  customLanguage: string
+) {
+  const completion = await new LLMChain({
+    llm: createModel(modelSettings),
+    prompt: startGoalPrompt,
+  }).call({
+    goal,
+    customLanguage,
+  });
+  console.log("Cody Chat Goal", goal, "Completion:" + (completion.text as string));
+  return extractTasks(completion.text as string, []);
+}
+
+async function deepSeekCoderV3Agent(
+  modelSettings: ModelSettings,
+  goal: string,
+  customLanguage: string
+) {
+  const completion = await new LLMChain({
+    llm: createModel(modelSettings),
+    prompt: startGoalPrompt,
+  }).call({
+    goal,
+    customLanguage,
+  });
+  console.log("Deep Seek Coder V3 Goal", goal, "Completion:" + (completion.text as string));
+  return extractTasks(completion.text as string, []);
+}
+
 interface AgentService {
   startGoalAgent: (
     modelSettings: ModelSettings,
@@ -146,6 +178,16 @@ interface AgentService {
     completedTasks: string[] | undefined,
     customLanguage: string,
   ) => Promise<string[]>;
+  codyChatAgent: (
+    modelSettings: ModelSettings,
+    goal: string,
+    customLanguage: string
+  ) => Promise<string[]>;
+  deepSeekCoderV3Agent: (
+    modelSettings: ModelSettings,
+    goal: string,
+    customLanguage: string
+  ) => Promise<string[]>;
 }
 
 const OpenAIAgentService: AgentService = {
@@ -153,6 +195,8 @@ const OpenAIAgentService: AgentService = {
   analyzeTaskAgent: analyzeTaskAgent,
   executeTaskAgent: executeTaskAgent,
   createTasksAgent: createTasksAgent,
+  codyChatAgent: codyChatAgent,
+  deepSeekCoderV3Agent: deepSeekCoderV3Agent,
 };
 
 const MockAgentService: AgentService = {
@@ -193,6 +237,14 @@ const MockAgentService: AgentService = {
     customLanguage: string,
   ) => {
     return await new Promise((resolve) => resolve("Result: " + task));
+  },
+
+  codyChatAgent: async (modelSettings, goal, customLanguage) => {
+    return await new Promise((resolve) => resolve(["Cody Chat Task 1"]));
+  },
+
+  deepSeekCoderV3Agent: async (modelSettings, goal, customLanguage) => {
+    return await new Promise((resolve) => resolve(["Deep Seek Coder V3 Task 1"]));
   },
 };
 

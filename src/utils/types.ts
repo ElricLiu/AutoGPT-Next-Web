@@ -6,6 +6,8 @@ export type ModelSettings = {
   customEndPoint?: string;
   customMaxTokens?: number;
   customGuestKey?: string;
+  codyChat?: string;
+  deepSeekCoderV3?: string;
 };
 
 export type GuestSettings = {

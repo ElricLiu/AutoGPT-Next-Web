@@ -31,5 +31,7 @@
   "signin-tips": "<0> Please <1>sign in</1> to deploy an Agent! 🤖 </0> ",
   "generating-response": "🧠 Generating response...",
   "searching-web-for": "🌐 Searching the web for {{arg}} ...",
-  "pause-mode": "Pause Mode"
+  "pause-mode": "Pause Mode",
+  "cody-chat": "Cody Chat",
+  "deep-seek-coder-v3": "Deep Seek Coder V3"
 }
