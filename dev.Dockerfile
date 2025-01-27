@@ -19,7 +19,8 @@ ENV SKIP_ENV_VALIDATION=$SKIP_ENV_VALIDATION
 
 WORKDIR /app
 
-
+# Ensure the app module is copied to the correct location
+COPY app.py /app/app.py
 
 # Install dependencies based on the preferred package manager
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
@@ -41,8 +42,8 @@ RUN \
   else echo "Warning: Lockfile not found. It is recommended to commit lockfiles to version control." && yarn install; \
   fi
 
-
-
+# Ensure the app module is in the Python path
+ENV PYTHONPATH="/app:${PYTHONPATH}"
 
 ENTRYPOINT ["sh", "entrypoint.sh"]
 
