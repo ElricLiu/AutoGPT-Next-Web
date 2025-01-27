@@ -1,0 +1,2 @@
+langchain==0.0.91
+chromadb==1.5.9

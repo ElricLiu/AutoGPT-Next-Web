@@ -26,6 +26,9 @@ export const SorryDialog = ({ show, close }: SorryDialogProps) => {
             More Detials
           </a>
         </p>
+        <p>
+          You can also use Cody chat and deep seek coder v3 after signing in.
+        </p>
       </Trans>
     </Dialog>
   );

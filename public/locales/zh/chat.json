@@ -31,5 +31,7 @@
   "signin-tips": "<0> 请 <1>登录</1> 以部署代理! 🤖 </0> ",
   "generating-response": "🧠  生成回复中...",
   "searching-web-for": "🌐 正在搜索 {{arg}} ...",
-  "pause-mode": "暂停模式"
+  "pause-mode": "暂停模式",
+  "cody-chat": "Cody Chat",
+  "deep-seek-coder-v3": "Deep Seek Coder V3"
 }

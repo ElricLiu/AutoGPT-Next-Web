@@ -10,19 +10,35 @@ export const config = {
 
 const handler = async (request: NextRequest) => {
   try {
-    const { modelSettings, goal, task, analysis, customLanguage } =
+    const { modelSettings, goal, task, analysis, customLanguage, agentType } =
       (await request.json()) as RequestBody;
     if (task === undefined) {
       return;
     }
 
-    const response = await AgentService.executeTaskAgent(
-      modelSettings,
-      goal,
-      task,
-      analysis || DefaultAnalysis,
-      customLanguage
-    );
+    let response;
+    if (agentType === "codyChat") {
+      response = await AgentService.codyChatAgent(
+        modelSettings,
+        goal,
+        customLanguage
+      );
+    } else if (agentType === "deepSeekCoderV3") {
+      response = await AgentService.deepSeekCoderV3Agent(
+        modelSettings,
+        goal,
+        customLanguage
+      );
+    } else {
+      response = await AgentService.executeTaskAgent(
+        modelSettings,
+        goal,
+        task,
+        analysis || DefaultAnalysis,
+        customLanguage
+      );
+    }
+
     return NextResponse.json({
       response: response,
     });

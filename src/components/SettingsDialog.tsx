@@ -10,6 +10,8 @@ import {
   FaCoins,
   FaCode,
   FaServer,
+  FaComments,
+  FaSearch,
 } from "react-icons/fa";
 import Dialog from "./Dialog";
 import Input from "./Input";
@@ -165,6 +167,26 @@ export const SettingsDialog: React.FC<{
           max: 2000,
           step: 100,
         }}
+      />
+      <Input
+        left={
+          <>
+            <FaComments />
+            <span className="ml-2">{t("cody-chat")}</span>
+          </>
+        }
+        value={settings.codyChat}
+        onChange={(e) => updateSettings("codyChat", e.target.value)}
+      />
+      <Input
+        left={
+          <>
+            <FaSearch />
+            <span className="ml-2">{t("deep-seek-coder-v3")}</span>
+          </>
+        }
+        value={settings.deepSeekCoderV3}
+        onChange={(e) => updateSettings("deepSeekCoderV3", e.target.value)}
       />
     </div>
   );
