@@ -29,6 +29,9 @@ RUN \
 # Copy the rest of the application code
 COPY . .
 
+# Ensure the app module is copied to the correct location
+COPY app.py /app/app.py
+
 # Environment variables must be present at build time
 # https://github.com/vercel/next.js/discussions/14030
 
@@ -108,6 +111,9 @@ COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# Ensure the app module is in the Python path
+ENV PYTHONPATH="/app:${PYTHONPATH}"
 
 # Environment variables must be redefined at run time
 
